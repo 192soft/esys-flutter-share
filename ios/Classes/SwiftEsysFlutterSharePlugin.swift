@@ -86,15 +86,15 @@ public class SwiftEsysFlutterSharePlugin: NSObject, FlutterPlugin {
         // set up activity view controller
         setupAndShow(activityItems)
     }
-}
-
-private func setupAndShow(_ activityItems: [Any]) {
-    let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-    let controller = UIApplication.shared.keyWindow!.rootViewController as! FlutterViewController
-    if let popover = activityViewController.popoverPresentationController {
-        popover.sourceView = controller.view
-        let bounds = controller.view.bounds
-        popover.sourceRect = CGRect(x: bounds.width - 96, y: 20, width: 48, height: 48)
+    
+    private func setupAndShow(_ activityItems: [Any]) {
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let controller = UIApplication.shared.keyWindow!.rootViewController as! FlutterViewController
+        if let popover = activityViewController.popoverPresentationController {
+            popover.sourceView = controller.view
+            let bounds = controller.view.bounds
+            popover.sourceRect = CGRect(x: bounds.width - 96, y: 20, width: 48, height: 48)
+        }
+        controller.show(activityViewController, sender: self)
     }
-    controller.show(activityViewController, sender: self?)
 }
