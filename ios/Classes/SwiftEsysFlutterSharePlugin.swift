@@ -96,5 +96,5 @@ private func setupAndShow(_ activityItems: [Any]) {
         let bounds = controller.view.bounds
         popover.sourceRect = CGRect(x: bounds.width - 96, y: 20, width: 48, height: 48)
     }
-    controller.show(activityViewController, sender: self)
+    controller.show(activityViewController, sender: self?)
 }
